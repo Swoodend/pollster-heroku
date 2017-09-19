@@ -86,6 +86,52 @@ app.post('/login', (req, res) => {
   });
 });
 
+app.get("/:user/polls", (req, res) => {
+  let user = req.params.user;
+  Poll.find({author: user}, (err, pollArr) => {
+    if (err) return console.log('something went wrong in /:user/polls', err);
+    console.log('in /user/polls');
+    console.log(pollArr);
+    if(pollArr.length > 0){
+      let totalVotes = pollArr.reduce((total, pollObj) => {
+        total += pollObj.votes.reduce((subTotal, nextVal) => {
+          return subTotal + nextVal;
+        })
+        return total;
+      }, 0)
+
+      let mostPopularPoll = pollArr.reduce((mostPopular, nextPoll) => {
+        let mostPopVotes = mostPopular.votes.reduce((a, b) => {return a + b;});
+        let nextPollVotes = nextPoll.votes.reduce((a, b) => {return a + b;});
+
+        return mostPopVotes > nextPollVotes ? mostPopular : nextPoll
+      })
+      console.log('mostpop is', mostPopularPoll)
+      res.json(
+        {
+          status: "OK",
+          polls: pollArr,
+          totalVotes,
+          mostPopularPoll
+        }
+      );
+    } else {
+      res.json({
+        polls: []
+      })
+    }
+  })
+});
+
+app.delete('/polls/:pollId', (req, res) => {
+  Poll.remove({id: req.body.id}, (err) => {
+    if (err) return console.log('something went wrong in delete', err);
+    res.json({
+      status: 'deleted'
+    })
+  })
+});
+
 // All remaining requests return the React app, so it can handle routing.
 app.get('*', function(request, response) {
   response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
