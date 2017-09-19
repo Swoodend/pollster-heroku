@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Home from './Home';
 import Navbar from './Navbar';
+import Signup from './Signup';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './index.css';
 
