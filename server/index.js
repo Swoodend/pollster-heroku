@@ -12,10 +12,10 @@ const gm = require("getmac");
 const PORT = process.env.PORT || 5000;
 
 // Priority serve any static files
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({
+//   extended: true
+// }));
 
 app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 
@@ -42,29 +42,29 @@ app.get('/validate/:token', (req, res) => {
   }
 });
 
-app.post('/signup', (req, res) => {
-  var hash = bcrypt.hashSync(req.body.password, 10);
-
-  let user = new User ({
-    email: req.body.email,
-    username: req.body.username,
-    password: hash,
-    polls: []
-  });
-
-  user.save((err) => {
-    if (!err){
-      let token = jwt.sign({username: req.body.username, loggedIn: true}, 'secret');
-      res.json({type: "OK", token: token});
-    } else {
-      if (err.code === 11000){
-        res.json({type: "Error", message:"Email/Username is already in use"});
-      } else {
-        res.json({type: "Error", message:"Something went wrong"})
-      }
-    }
-  });
-});
+// app.post('/signup', (req, res) => {
+//   var hash = bcrypt.hashSync(req.body.password, 10);
+//
+//   let user = new User ({
+//     email: req.body.email,
+//     username: req.body.username,
+//     password: hash,
+//     polls: []
+//   });
+//
+//   user.save((err) => {
+//     if (!err){
+//       let token = jwt.sign({username: req.body.username, loggedIn: true}, 'secret');
+//       res.json({type: "OK", token: token});
+//     } else {
+//       if (err.code === 11000){
+//         res.json({type: "Error", message:"Email/Username is already in use"});
+//       } else {
+//         res.json({type: "Error", message:"Something went wrong"})
+//       }
+//     }
+//   });
+// });
 
 // All remaining requests return the React app, so it can handle routing.
 app.get('*', function(request, response) {
