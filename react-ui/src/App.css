@@ -1,28 +1,635 @@
-.App {
+@media screen and (max-width: 570px){
+  /*homepage css*/
+  .navbar {
+    display: none !important;
+  }
+
+  .secondary-nav {
+    display: flex !important;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .main-dash-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .left-nav-polls {
+    width: 100% !important;
+    text-align: center;
+    padding-bottom: 0px !important;
+  }
+
+  .poll-stats-container{
+    width: 100% !important;
+  }
+
+  .poll-stats-subcontainer {
+    margin: 15px auto !important;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*navbar*/
+.div-anchor {
+  display: block;
+}
+
+.div-anchor:hover {
+  cursor: pointer;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  background: deepskyblue;
+  justify-content: space-between;
+  color: white;
+  line-height: 50px;
+  z-index: 100;
+}
+
+.left {
+  min-width: 150px;
+}
+
+.right {
+  min-width: 415px;
+}
+
+.nav-title {
+  font-family: "Patua One", Arial;
+  font-size: 2em;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.navbar .right {
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+  text-align: center;
+  font-family: 'Asap', Arial;
+}
+
+.username {
+  min-width: 70px;
+  background: salmon;
+  width: 50%;
+}
+
+.login, .polls, .nav-new-poll {
+  background: #C1D42F;
+  min-width: 90px;
+  width: 50%;
+}
+
+.login, .signup, .polls, .nav-new-poll, .logout {
+  position: relative;
+}
+
+.nav-new-poll {
+  background: deepskyblue;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.signup, .logout {
+  background: #fcb723;
+  min-width: 100px;
+  width: 50%;
+}
+
+/*secondary-nav*/
+.secondary-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  background: deepskyblue;
+  justify-content: space-between;
+  color: white;
+  line-height: 50px;
+  z-index: 100;
+  text-align: center
+}
+
+.sec-left {
+  width: 33%;
+}
+
+.sec-nav-title{
+  font-family: "Patua One", Arial;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.sec-right {
+  width: 66%;
+  font-family: 'Asap', Arial;
+  font-size: 1.25em;
+  background: #a200ff
+}
+
+.sec-right:hover > div {
+  display: block;
+}
+
+.sec-right-menu {
+  display: none;
+}
+
+.sec-username {
+  background: #f45c42;
+}
+.sec-polls {
+  background: #C1D42F;
+}
+
+
+.sec-nav-new-poll {
+  background: deepskyblue;
+}
+
+.sec-logout {
+  background: #FCB723;
+}
+
+
+.image-area .text-box {
+  position: relative;
+  width: 50%;
+  height: 200px;
+  left: 25%;
+  top: 200px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.text-box .text-area {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.text-area h1 {
+  font-size: 3em;
+  font-family: 'Patua One', Arial;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.text-area p {
+  font-size: 1.5em;
+}
+
+.signup-button {
+  height: 50px;
+  width: 100px;
+  background: deepskyblue;
+  color: white;
+  line-height: 50px;
+  margin: 0 auto;
+  font-family: 'Asap', Arial;
+  font-size: 1.5em;
+}
+
+
+.main-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.main-image {
+  height: 700px;
+  width: 50%;
+}
+
+.info-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.info-col {
+  min-width: 300px;
+  margin-top: 75px;
+  display: flex;
+  align-items: center;
+  color: deepskyblue;
+}
+
+.info-col-contents {
+  text-align: center;
+}
+
+
+.info-col-contents p{
+  max-width: 300px;
+  font-size: 18px;
+  font-family: 'Asap', Arial;
+  color: deepskyblue;
+  text-align: center;
+}
+
+.info-header {
+  font-family: 'Patua One', Arial;
+  text-align: center;
+  width: 100%;
+  font-size: 2.5em;
+}
+
+/*signup css, you did some inline styling too just to try it out*/
+
+.signup-container, .login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: calc(100vh - 55px);
+}
+
+.signup-box {
+  width: 25%;
+  min-width: 300px;
+  min-height: 325px;
+  height: 33%;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.login-box {
+  width: 25%;
+  min-width: 300px;
+  min-height: 250px;
+  height: 33%;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.signup-form, .login-form {
+  text-align: center;
+  margin-top: 35px;
+}
+
+
+#signup-submit, #login-submit {
+  border: none;
+  padding: 10px 20px !important;
+  font-size: 14px !important;
+  background:	deepskyblue;
+  font-weight: bold;
   color: white;
 }
 
-.App-intro {
-  font-size: large;
+#signup-submit:hover {
+  cursor: pointer;
 }
 
-.App a {
-  color: #f60;
+/* FLASH MESSAGE */
+.flash-container {
+  outline: 1px solid red;
+  background: #ffcccc;
+  color: red;
+  text-align: center;
+  visibility: visible;
+  position: absolute;
+  width: 100%;
+  top: 55px;
+}
+.flash-enter {
+   opacity: 0.01;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.flash-enter.flash-enter-active {
+   opacity: 1;
+   transition: opacity 500ms ease-in;
+}
+
+.flash-leave {
+   opacity: 1;
+}
+
+.flash-leave.flash-leave-active {
+   opacity: 0;
+   transition: opacity 500ms ease-in;
+}
+
+/* DASHBOARD NOT LOGGED IN */
+
+.dash-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px);
+}
+
+.dash-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 320px;
+  width: 320px;
+  /*background: salmon;*/
+}
+
+.dash-container .action-container {
+  display: flex;
+  justify-content: space-around;
+  height: 10%;
+  width: 100%;
+  /*background: yellow;*/
+}
+
+.new-poll, .random-poll { /*these are buttons*/
+  height: 100%;
+  width: 70px;
+  color: white;
+  background: deepskyblue;
+  font-family: "Asap", Arial;
+  line-height: 30px;
+  text-align: center;
+  padding: 5px;
+}
+
+/* new poll page */
+.new-poll-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 75px);
+}
+
+.new-poll-box {
+  width: 25%;
+  min-width: 315px;
+  min-height: 250px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding-bottom: 25px;
+}
+
+/* view poll page */
+
+.canvas-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100vw - 5%);
+  min-height: 500px;
+  margin: 0 auto;
+}
+
+
+.voting-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+
+#vote-button {
+  display: block;
+  width: 100%;
+  border: none;
+  background: #C1D42F;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: 'Asap', Arial;
+  height: 35px;
+  margin: 15px auto;
+}
+
+#vote-button:hover {
+  cursor: pointer;
+}
+
+[type="radio"] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px; margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+[type="radio"] + span::before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.25em;
+  border: 0.125em solid #fff;
+  margin: 0 15px 0 15px;
+  box-shadow: 0 0 0 0.15em #000;
+  transition: 0.5s ease all;
+}
+
+[type="radio"]:checked + span::before {
+  background: salmon;
+  box-shadow: 0 0 0 0.25em #000;
+}
+
+/*dashboard left nav*/
+
+.left-nav-polls {
+  width: 20vw;
+  position: relative;
+  background: ivory;
+  padding-bottom: 55px;
+}
+
+.poll-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 125px;
+  width: 100%;
+  background: linear-gradient(to right, #e6f777 50%, ivory 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  overflow-y: auto;
+  font-family: 'Asap', Arial;
+  font-size: 22px;
+}
+
+.poll-item:hover {
+  background-position: left bottom;
+  transition: all 1s ease;
+}
+
+.poll-item > .poll-title, .poll-item > .poll-votes {
+  padding-left: 15px;
+}
+
+.login:hover > .overlay, .signup:hover > .overlay, .polls:hover > .overlay {
+  position:absolute;
+  top:0;
+  left:0;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  opacity: 0.2;
+}
+
+.nav-new-poll:hover > .overlay, .logout:hover > .overlay {
+  position:absolute;
+  top:0;
+  left:0;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  opacity: 0.2;
+}
+
+.sec-polls:hover > .overlay,
+.sec-nav-new-poll:hover > .overlay,
+.sec-polls:hover > .overlay,
+.sec-nav-new-poll:hover > .overlay,
+.sec-logout:hover > .overlay {
+  height: 100%;
+  width: 100%;
+  background: #000;
+  opacity: 0.2;
+}
+
+.delete-btn {
+  height: 15px;
+  width: 15px;
+  line-height: 12.5px;
+  text-align: center;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  color: red;
+  font-family: 'Patua One', Arial;
+}
+
+.delete-btn:hover {
+  cursor: pointer;
+}
+
+.modal {
+  position: absolute;
+  background: lightpink;
+  height: 110px;
+  width: 100%;
+  top:0;
+  left:0;
+  text-align: center;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.yes-btn {
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  background: #C1D42F;
+}
+
+.no-btn {
+  background: salmon;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
+
+.poll-option-button {
+  height: 15px;
+  width: 15px;
+  color: white;
+  display: inline-block;
+  text-align: center;
+}
+
+.poll-option-button:hover {
+  cursor: pointer;
+}
+
+.red {
+  background: #f45c42;
+  line-height: 12px;
+  position: absolute;
+  top: 2px;
+
+}
+
+.green {
+  background: #00ff99;
+  line-height: 15px;
+}
+
+#last-input {
+  margin-left: 18px!important;
+}
+
+.poll-stats-container {
+  height: calc(100vh - 50px);
+  position: relative;
+  display: flex;
+  width: 75vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.poll-stats-subcontainer {
+  border: 1px solid black;
+  min-height: 467px;
+  width: 400px;
+  margin: 50px;
+  text-align: center;
+  font-family: "Asap", Arial;
+}
+
+.main-dash-container {
+  display: flex;
+}
+
+
+#big-num {
+  font-size: 125px;
+  word-wrap: break-word;
+  color: #fcb723;
+}
+
+.pad-left {
+  padding-left: 15px;
+}
+
+
+.yes-btn:hover, .no-btn:hover {
+  cursor: pointer;
+}
+
+.yes-no-container {
+  display: flex;
+  justify-content: space-around;
 }
