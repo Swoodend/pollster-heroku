@@ -14,7 +14,12 @@
     "react-ui/node_modules"
   ],
   "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.1",
     "express": "^4.14.1",
+    "getmac": "^1.2.1",
+    "jsonwebtoken": "^8.0.1",
+    "mongoose": "^4.11.12",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-router": "^4.2.0",
