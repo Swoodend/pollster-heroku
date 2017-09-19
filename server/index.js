@@ -24,7 +24,21 @@ app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 //   res.set('Content-Type', 'application/json');
 //   res.send('{"message":"Hello from the custom server!"}');
 // });
+
+var options = {
+    server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+    replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }
+};
+
+mongoose.connect(process.env.MONGOLAB_URI, options);
+const conn = mongoose.connection;
+conn.on('error', console.error.bind(console, 'connection error:'));
+
+
 // mongoose.connect(process.env.MONGOLAB_URI);
+
+
+
 
 app.get('/validate/:token', (req, res) => {
   console.log('hit validate route');
