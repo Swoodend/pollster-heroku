@@ -67,6 +67,25 @@ app.post('/signup', (req, res) => {
   });
 });
 
+app.post('/login', (req, res) => {
+  User.findOne({'username': req.body.username}, (err, user) => {
+    if (err) {
+      res.json({type:"Error", message:"Something went wrong"});
+    }
+
+    if (!err && user){
+      if (bcrypt.compareSync(req.body.password, user.password)){
+        let token = jwt.sign({username: req.body.username, loggedIn: true}, 'secret');
+        res.json({type: "OK", token: token, currentUser: req.body.username});
+      } else {
+        res.json({type:"Error", message:"Incorrect password. Please try again"});
+      }
+    } else {
+      res.json({type:"Error", message: "Username does not exist"});
+    }
+  });
+});
+
 // All remaining requests return the React app, so it can handle routing.
 app.get('*', function(request, response) {
   response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
