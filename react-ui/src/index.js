@@ -4,23 +4,22 @@ import App from './App';
 import Home from './Home';
 import './index.css';
 
-ReactDOM.render(
-  ReactDOM.render((
-    <Router>
-      <div>
-        {/*<Navbar/>*/}
-        <div style={{"margin-top":"55px"}}>
-          <Route exact path="/" component={Home}/>
-          {/*
-          <Route path="/signup" component={Signup}/>
-          <Route path="/login" component={Login}/>
-          <Route path="/dashboard" component={Dashboard}/>
-          <Route path="/new" component={NewPoll}/>
-          <Route path="/polls/:pollId" component={ViewPoll}/>
-          */}
-        </div>
+
+ReactDOM.render((
+  <Router>
+    <div>
+      {/*<Navbar/>*/}
+      <div style={{"margin-top":"55px"}}>
+        <Route exact path="/" component={Home}/>
+        {/*
+        <Route path="/signup" component={Signup}/>
+        <Route path="/login" component={Login}/>
+        <Route path="/dashboard" component={Dashboard}/>
+        <Route path="/new" component={NewPoll}/>
+        <Route path="/polls/:pollId" component={ViewPoll}/>
+        */}
       </div>
-    </Router>),
-    document.getElementById('root')
-  );
+    </div>
+  </Router>),
+  document.getElementById('root')
 );
