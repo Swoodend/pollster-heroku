@@ -11,7 +11,12 @@ const jwt = require('jsonwebtoken');
 const gm = require("getmac");
 const PORT = process.env.PORT || 5000;
 
-// Priority serve any static files.
+// Priority serve any static files
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
 app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 
 // Answer API requests.
