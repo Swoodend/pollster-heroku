@@ -31,11 +31,8 @@ var options = {
 };
 
 mongoose.connect(process.env.MONGOLAB_URI, options);
-const conn = mongoose.connection;
-conn.on('error', console.error.bind(console, 'connection error:'));
 
-console.log(conn);
-// mongoose.connect(process.env.MONGOLAB_URI);
+conn.on('error', console.error.bind(console, 'connection error:'));
 
 
 
