@@ -13,6 +13,22 @@ app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 //   res.send('{"message":"Hello from the custom server!"}');
 // });
 
+app.get('/validate/:token', (req, res) => {
+  console.log('hit validate route');
+  let token = req.params.token;
+  if (token){
+    jwt.verify(token, 'secret', (err, decoded) => {
+      if(!err && decoded){
+        res.json({user: decoded.username});
+      } else {
+        res.json({user: false});
+      }
+    });
+  } else {
+    res.json({user: false});
+  }
+});
+
 // All remaining requests return the React app, so it can handle routing.
 app.get('*', function(request, response) {
   response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
