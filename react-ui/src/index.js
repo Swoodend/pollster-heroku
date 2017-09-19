@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Home from './Home';
+import Navbar from './Navbar';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './index.css';
 
@@ -8,7 +9,7 @@ import './index.css';
 ReactDOM.render((
   <Router>
     <div>
-      {/*<Navbar/>*/}
+      <Navbar/>
       <div style={{"margin-top":"55px"}}>
         <Route exact path="/" component={Home}/>
         {/*
