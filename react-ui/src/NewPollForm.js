@@ -10,7 +10,8 @@ class NewPollForm extends Component {
     this.removePollOption = this.removePollOption.bind(this);
     this.state = {
       pollOptionInputs :['input0'],
-      inputValues : {}
+      inputValues : {},
+      fireRedirect : false
     }
   }
 
@@ -37,7 +38,12 @@ class NewPollForm extends Component {
       })
       .then((res) => {
         if (res.status === "OK"){
-          window.location.href = `http://swoodend-pollster.herokuapp.com/polls/${res.pollId}`;
+          this.setState(
+            {
+              fireRedirect : true
+            }
+          );
+          // window.location.href = `http://swoodend-pollster.herokuapp.com/polls/${res.pollId}`;
         }
       });
   }
@@ -136,6 +142,10 @@ class NewPollForm extends Component {
             </div>
           </form>
         </div>
+        {fireRedirect && (
+          <Redirect to={`/polls/${res.pollId}`}/>
+        )}
+
       </div>
     );
   }
