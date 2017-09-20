@@ -61,7 +61,7 @@ class Login extends Component {
           localStorage.setItem('currentUser', res.currentUser);
           localStorage.setItem('votedOn', JSON.stringify([]));
           this.resetFormFields();
-          window.location.replace('http://swoodend-pollster.her/dashboard');
+          window.location.replace('https://swoodend-pollster.herokuapp.com/dashboard');
         } else {
           this.setState({
             error: {type: res.type, message: res.message}
