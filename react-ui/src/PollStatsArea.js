@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-var Chart = require('chart.js');
+import Chart from 'chart';
 
 export default class PollStatsArea extends Component {
   render(){
