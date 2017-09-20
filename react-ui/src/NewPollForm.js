@@ -37,7 +37,7 @@ class NewPollForm extends Component {
       })
       .then((res) => {
         if (res.status === "OK"){
-          window.location.replace(`http://swoodend-pollster.herokuapp.com/polls/${res.pollId}`);
+          window.location.href = `http://swoodend-pollster.herokuapp.com/polls/${res.pollId}`;
         }
       });
   }
