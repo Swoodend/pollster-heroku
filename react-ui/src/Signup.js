@@ -53,7 +53,7 @@ class Signup extends Component {
           } else {
             localStorage.setItem("jwt", res.token);
             localStorage.setItem("currentUser", this.refs.username.value);
-            window.location.replace("http://localhost:3000/dashboard");
+            window.location.replace("http://swoodend-pollster.herokuapp.com/dashboard");
           }
         })
     } else {
