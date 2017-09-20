@@ -12,7 +12,8 @@ class NewPollForm extends Component {
     this.state = {
       pollOptionInputs :['input0'],
       inputValues : {},
-      fireRedirect : false
+      fireRedirect : false,
+      redirectId: null
     }
   }
 
@@ -41,7 +42,8 @@ class NewPollForm extends Component {
         if (res.status === "OK"){
           this.setState(
             {
-              fireRedirect : true
+              fireRedirect : true,
+              redirectId : res.pollId
             }
           );
           // window.location.href = `http://swoodend-pollster.herokuapp.com/polls/${res.pollId}`;
@@ -143,8 +145,8 @@ class NewPollForm extends Component {
             </div>
           </form>
         </div>
-        {fireRedirect && (
-          <Redirect to={`/polls/${res.pollId}`}/>
+        {this.state.fireRedirect && (
+          <Redirect to={`/polls/${this.state.redirectId}`}/>
         )}
 
       </div>
