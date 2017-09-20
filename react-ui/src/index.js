@@ -5,6 +5,8 @@ import Navbar from './Navbar';
 import Signup from './Signup';
 import Login from './Login';
 import Dashboard from './Dashboard';
+import NewPoll from './NewPoll';
+import ViewPoll from './ViewPoll';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './index.css';
 
