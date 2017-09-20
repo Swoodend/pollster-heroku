@@ -16,7 +16,7 @@
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.1",
-    "chartjs": "^0.3.24",
+    "chart.js": "^2.7.0",
     "express": "^4.14.1",
     "getmac": "^1.2.1",
     "jsonwebtoken": "^8.0.1",
