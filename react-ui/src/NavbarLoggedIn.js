@@ -11,7 +11,7 @@ class NavbarLoggedIn extends Component {
   handleLogout(){
     localStorage.removeItem("jwt");
     localStorage.removeItem("currentUser");
-    window.location.replace('http://localhost:3000/login');
+    window.location.replace('https://swoodend-pollster.herokuapp.com/login');
   }
 
 
