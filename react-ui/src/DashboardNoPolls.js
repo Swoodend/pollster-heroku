@@ -36,7 +36,7 @@ class DashboardNoPolls extends Component {
           </div>
         </div>
         {this.state.fireRedirect && this.state.redirectId && (
-          <Redirect to={`/polls/${this.state.redirectId}`}
+          <Redirect to={`/polls/${this.state.redirectId}`}/>
         )}
       </div>
     );
