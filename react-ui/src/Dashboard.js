@@ -14,7 +14,9 @@ class Dashboard extends Component {
   }
 
   verifyLoggedIn(){
-    return localStorage.getItem("jwt");
+    let token = localStorage.getItem("jwt");
+    console.log('in dashboard, verifying login');
+    return token || false;
   }
 
   componentWillMount(){
