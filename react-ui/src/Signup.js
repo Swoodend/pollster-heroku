@@ -51,6 +51,8 @@ class Signup extends Component {
             });
             this.clearFormFields();
           } else {
+            //redirect here with <Redirect />
+            //in setState callback set local storage
             localStorage.setItem("jwt", res.token);
             localStorage.setItem("currentUser", this.refs.username.value);
             window.location.replace("http://swoodend-pollster.herokuapp.com/dashboard");
