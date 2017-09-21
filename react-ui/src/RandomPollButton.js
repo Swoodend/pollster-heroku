@@ -17,10 +17,7 @@ export default class RandomPollButton extends Component {
       })
       .then((pollObj) => {
         if (pollObj.status === 'OK'){
-          console.log('QUERY RAN');
-          console.log(this.props);
           this.props.handleClick(pollObj.id);
-          // window.location.replace('/polls/' + pollObj.id);
         } else if (pollObj.status === 'null'){
           alert('There are no polls in our database!');
         }

@@ -15,11 +15,10 @@ class DashboardNoPolls extends Component {
   }
 
   randomPollButtonClicked(id){
-    console.log('poll button was clicked', id);
-    // this.setState({
-    //   fireRedirect : true,
-    //   redirectId: id
-    // });
+    this.setState({
+      fireRedirect : true,
+      redirectId: id
+    });
   }
 
 
@@ -36,6 +35,9 @@ class DashboardNoPolls extends Component {
             <RandomPollButton handleClick={this.randomPollButtonClicked}/>
           </div>
         </div>
+        {this.state.fireRedirect && this.state.redirectId && (
+          <Redirect to={`/polls/${this.state.redirectId}`}
+        )}
       </div>
     );
   }
