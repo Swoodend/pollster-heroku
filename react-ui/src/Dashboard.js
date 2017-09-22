@@ -24,17 +24,17 @@ class Dashboard extends Component {
         return res.json();
       })
       .then((res) => {
-        if (res.status === "OK" && res.polls.length > 0 ){
+        if (res.type === "OK" && res.polls.length > 0 ){
           this.setState({
             loggedIn: true,
             currentUserPolls: res.polls
           });
-        } else if (res.status === "OK"){
+        } else if (res.type === "OK"){
           this.setState({
             loggedIn: true
           });
         } else {
-          console.log('SOMETHIGN WENT REALLY WROOONG');
+          console.log('SOMETHIGN WENT REALLY WROOONG', res.type);
         }
       })
   }

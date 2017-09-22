@@ -136,7 +136,7 @@ class Signup extends Component {
           </div>
         </div>
         {this.state.loggedIn && (
-          <Redirect to={{pathname: "/dashboard", state: {loggedIn : true}}}/>
+          <Redirect to={"/dashboard"}/>
         )}
       </div>
     );
