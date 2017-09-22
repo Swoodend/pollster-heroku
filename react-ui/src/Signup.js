@@ -55,12 +55,11 @@ class Signup extends Component {
           } else {
             //redirect here with <Redirect />
             //in setState callback set local storage
+            localStorage.setItem("jwt", res.token);
+            localStorage.setItem("currentUser", this.refs.username.value);
             this.setState({
               loggedIn: true
-            }, () => {
-              localStorage.setItem("jwt", res.token);
-              localStorage.setItem("currentUser", this.refs.username.value);
-            })            
+            });
           }
         })
     } else {
@@ -137,7 +136,7 @@ class Signup extends Component {
           </div>
         </div>
         {this.state.loggedIn && (
-          <Redirect to={'/dashboard'}/>
+          <Redirect to={'/dashboard', state: {loggedIn: true}}/>
         )}
       </div>
     );

@@ -8,16 +8,13 @@ class Dashboard extends Component {
   constructor(props){
     super(props);
     this.state = {
-      loggedIn: false,
+      loggedIn: false
       currentUserPolls: []
     }
   }
 
   verifyLoggedIn(){
-    let token = localStorage.getItem("jwt");
-    console.log('in dashboard, verifying login');
-    console.log('returning', token ? true : false);
-    return token ? true : false;
+    return this.state.loggedIn;
   }
 
   componentWillMount(){
@@ -32,13 +29,17 @@ class Dashboard extends Component {
             loggedIn: true,
             currentUserPolls: res.polls
           });
+        } else {
+          this.setState({
+            loggedIn: true
+          });
         }
       })
   }
 
   render(){
     let view;
-
+    console.log('rendering dashboard...login state:', this.state.loggedIn);
     if (this.verifyLoggedIn()){
       if (this.state.currentUserPolls.length > 0){
         view = <DashboardWithPolls/>
