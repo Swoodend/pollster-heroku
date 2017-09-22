@@ -15,8 +15,6 @@ class Navbar extends Component {
     if (user){
       this.setState({
         loggedIn:user
-      }, () => {
-        this.forceUpdate();
       })
       // fetch(`/validate/${token}`)
       //   .then((res) => {
@@ -31,7 +29,15 @@ class Navbar extends Component {
       //   })
     }
 
+    componentDidMount(){
+      let user = localStorage.getItem("currentUser");
+      if (user){
+        this.setState({
+          loggedIn:user
+        });
+    }
   }
+
   render(){
     console.log('rendering nav', this.state);
     let nav = this.state.loggedIn ? <NavbarLoggedIn username={this.state.loggedIn}/> : <NavbarNotLoggedIn/>
