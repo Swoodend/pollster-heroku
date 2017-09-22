@@ -31,6 +31,7 @@ class Navbar extends Component {
   }
 
   componentDidMount(){
+    console.log('componentDidMount ran in navbar');
     let user = localStorage.getItem("currentUser");
     if (user){
       this.setState({
