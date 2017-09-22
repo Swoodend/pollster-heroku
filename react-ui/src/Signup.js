@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import FlashMessage from './FlashMessage';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
@@ -10,7 +11,8 @@ class Signup extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearFormFields = this.clearFormFields.bind(this);
     this.state = {
-      error: null
+      error: null,
+      loggedIn: false
     }
   }
 
@@ -53,9 +55,12 @@ class Signup extends Component {
           } else {
             //redirect here with <Redirect />
             //in setState callback set local storage
-            localStorage.setItem("jwt", res.token);
-            localStorage.setItem("currentUser", this.refs.username.value);
-            window.location.replace("http://swoodend-pollster.herokuapp.com/dashboard");
+            this.setState({
+              loggedIn: true
+            }, () => {
+              localStorage.setItem("jwt", res.token);
+              localStorage.setItem("currentUser", this.refs.username.value);
+            })            
           }
         })
     } else {
@@ -131,6 +136,9 @@ class Signup extends Component {
             </form>
           </div>
         </div>
+        {this.state.loggedIn && (
+          <Redirect to={'/dashboard'}/>
+        )}
       </div>
     );
   }
