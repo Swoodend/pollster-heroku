@@ -13,9 +13,10 @@ class Navbar extends Component {
   componentWillMount(){
     let user = localStorage.getItem("currentUser");
     if (user){
-
       this.setState({
         loggedIn:user
+      }, () => {
+        this.forceUpdate();
       })
       // fetch(`/validate/${token}`)
       //   .then((res) => {
