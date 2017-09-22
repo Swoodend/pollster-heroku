@@ -58,9 +58,10 @@ class Signup extends Component {
             localStorage.setItem("jwt", res.token);
             console.log('set currentUser to', this.refs.username.value);
             localStorage.setItem("currentUser", this.refs.username.value);
-            this.setState({
-              loggedIn: true
-            });
+            window.location.replace("https://swoodend-pollster.herokuapp.com/dashboard");
+            // this.setState({
+            //   loggedIn: true
+            // });
           }
         })
     } else {
@@ -136,9 +137,6 @@ class Signup extends Component {
             </form>
           </div>
         </div>
-        {this.state.loggedIn && (
-          <Redirect to={"/dashboard"}/>
-        )}
       </div>
     );
   }

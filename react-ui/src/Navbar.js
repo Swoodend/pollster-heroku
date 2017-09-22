@@ -15,27 +15,6 @@ class Navbar extends Component {
     if (user){
       this.setState({
         loggedIn:user
-      })
-      // fetch(`/validate/${token}`)
-      //   .then((res) => {
-      //     return res.json();
-      //   })
-      //   .then((token) => {
-      //     if (token && token.user){
-      //       this.setState({
-      //         loggedIn : token.user
-      //       });
-      //     }
-      //   })
-    }
-  }
-
-  componentDidMount(){
-    console.log('componentDidMount ran in navbar');
-    let user = localStorage.getItem("currentUser");
-    if (user){
-      this.setState({
-        loggedIn:user
       });
     }
   }
