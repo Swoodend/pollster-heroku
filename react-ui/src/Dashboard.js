@@ -29,10 +29,12 @@ class Dashboard extends Component {
             loggedIn: true,
             currentUserPolls: res.polls
           });
-        } else {
+        } else if (res.status === "OK"){
           this.setState({
             loggedIn: true
           });
+        } else {
+          console.log('SOMETHIGN WENT REALLY WROOONG');
         }
       })
   }
