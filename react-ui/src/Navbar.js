@@ -28,13 +28,14 @@ class Navbar extends Component {
       //     }
       //   })
     }
+  }
 
-    componentDidMount(){
-      let user = localStorage.getItem("currentUser");
-      if (user){
-        this.setState({
-          loggedIn:user
-        });
+  componentDidMount(){
+    let user = localStorage.getItem("currentUser");
+    if (user){
+      this.setState({
+        loggedIn:user
+      });
     }
   }
 
