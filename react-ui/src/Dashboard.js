@@ -14,7 +14,7 @@ class Dashboard extends Component {
   }
 
   verifyLoggedIn(){
-    return this.state.loggedIn;
+    return localStorage.getItem("currentUser");
   }
 
   componentWillMount(){
@@ -24,6 +24,7 @@ class Dashboard extends Component {
         return res.json();
       })
       .then((res) => {
+        console.log('AFTER DASHBOARD AJAX, RESPONSE IS', res);
         if (res.type === "OK" && res.polls.length > 0 ){
           this.setState({
             loggedIn: true,
