@@ -56,6 +56,7 @@ class Signup extends Component {
             //redirect here with <Redirect />
             //in setState callback set local storage
             localStorage.setItem("jwt", res.token);
+            console.log('set currentUser to', this.refs.username.value);
             localStorage.setItem("currentUser", this.refs.username.value);
             this.setState({
               loggedIn: true

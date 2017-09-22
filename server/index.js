@@ -101,7 +101,7 @@ app.get('/validate/:token', (req, res) => {
 
 app.post('/signup', (req, res) => {
   var hash = bcrypt.hashSync(req.body.password, 10);
-
+  console.log("POSTED TO /SIGNUP");
   let user = new User ({
     email: req.body.email,
     username: req.body.username,
